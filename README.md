@@ -1,6 +1,6 @@
-# Boilerplate
+# RentBooks Aplication
 
-Boilerplate express js
+Simple application made with express js
 
 ## Installation
 

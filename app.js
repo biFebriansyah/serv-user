@@ -19,6 +19,7 @@ server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
 server.use(morgan("dev"));
 
+db.sequelizeTest();
 db.dbConnect();
 server.use(router);
 
