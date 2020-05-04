@@ -28,8 +28,10 @@ let retries = 10;
 (async () => {
     while (retries) {
         try {
-            await db.sequelizeTest();
-            await db.dbConnect();
+            const dborm = await db.sequelizeTest();
+            const dbcon = await db.dbConnect();
+            console.log(dbcon);
+            console.log(dborm);
             break;
         } catch (err) {
             console.log(err);

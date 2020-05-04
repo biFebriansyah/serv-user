@@ -1,6 +1,6 @@
 FROM node:latest
 
-RUN mkdir -p /usr/src/app
+RUN mkdir -p /usr/src/rentapp
 
 WORKDIR /usr/src/rentapp
 
@@ -9,8 +9,6 @@ COPY package*.json ./
 COPY . .
 
 RUN npm install
-
-RUN npm audit fix
 
 EXPOSE 9000
 

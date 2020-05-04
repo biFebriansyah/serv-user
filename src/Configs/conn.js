@@ -16,7 +16,7 @@ class dbConnect {
             process.env.PGUSER,
             process.env.PGPASSWORD,
             {
-                host: "localhost",
+                host: process.env.PGHOST,
                 port: process.env.PGPORT,
                 dialect: "postgres",
             }
@@ -27,42 +27,26 @@ class dbConnect {
         return new Promise((reslove, reject) => {
             this.con
                 .connect()
-                .then((res) => {
-                    reslove(res);
+                .then(() => {
+                    reslove("Connection to Database successfully.");
                 })
                 .catch((err) => {
                     reject(err);
                 });
         });
-        // this.con.connect((err) => {
-        //     if (err) {
-        //         console.log(err);
-        //         return;
-        //     } else {
-        //         console.log("Connection to Database successfully.");
-        //     }
-        // });
     }
 
     sequelizeTest() {
         return new Promise((reslove, reject) => {
             this.sequelize
                 .authenticate()
-                .then((res) => {
-                    reslove(res);
+                .then(() => {
+                    reslove("Connection has been established successfully.");
                 })
                 .catch((err) => {
                     reject(err);
                 });
         });
-        // this.sequelize
-        //     .authenticate()
-        //     .then(() => {
-        //         console.log("Connection has been established successfully.");
-        //     })
-        //     .catch((err) => {
-        //         console.error("Unable to connect to the database:", err);
-        //     });
     }
 }
 
