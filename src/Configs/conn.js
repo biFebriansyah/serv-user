@@ -24,25 +24,45 @@ class dbConnect {
     }
 
     dbConnect() {
-        this.con.connect((err) => {
-            if (err) {
-                console.log(err);
-                return;
-            } else {
-                console.log("Connection to Database successfully.");
-            }
+        return new Promise((reslove, reject) => {
+            this.con
+                .connect()
+                .then((res) => {
+                    reslove(res);
+                })
+                .catch((err) => {
+                    reject(err);
+                });
         });
+        // this.con.connect((err) => {
+        //     if (err) {
+        //         console.log(err);
+        //         return;
+        //     } else {
+        //         console.log("Connection to Database successfully.");
+        //     }
+        // });
     }
 
     sequelizeTest() {
-        this.sequelize
-            .authenticate()
-            .then(() => {
-                console.log("Connection has been established successfully.");
-            })
-            .catch((err) => {
-                console.error("Unable to connect to the database:", err);
-            });
+        return new Promise((reslove, reject) => {
+            this.sequelize
+                .authenticate()
+                .then((res) => {
+                    reslove(res);
+                })
+                .catch((err) => {
+                    reject(err);
+                });
+        });
+        // this.sequelize
+        //     .authenticate()
+        //     .then(() => {
+        //         console.log("Connection has been established successfully.");
+        //     })
+        //     .catch((err) => {
+        //         console.error("Unable to connect to the database:", err);
+        //     });
     }
 }
 
