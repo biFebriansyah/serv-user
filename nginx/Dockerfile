@@ -1,7 +1,5 @@
 FROM ubuntu:14.04
 
-MAINTAINER NGINX Docker Maintainers "docker-maint@nginx.com"
-
 # Set the debconf frontend to Noninteractive
 RUN echo 'debconf debconf/frontend select Noninteractive' | debconf-set-selections
 RUN apt-get update && apt-get install -y -q wget apt-transport-https curl unzip lsb-release runit
