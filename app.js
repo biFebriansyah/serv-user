@@ -19,8 +19,25 @@ server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
 server.use(morgan("dev"));
 
-db.sequelizeTest();
-db.dbConnect();
+// db.sequelizeTest();
+// db.dbConnect();
+
+// Wait connection from DB,
+// only run on Docker case
+let retries = 5;
+while (retries) {
+    try {
+        await db.sequelizeTest();
+        await db.dbConnect();
+        break;
+    } catch (err) {
+        console.log(err);
+        retries -= 1;
+        console.log(`retries left ${retries}`);
+        await new Promise((res) => setTimeout(res, 5000));
+    }
+}
+
 server.use(router);
 
 server.listen(servicePort, () => {
