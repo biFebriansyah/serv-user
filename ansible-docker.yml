@@ -1,24 +1,33 @@
 ---
     - hosts: ansible-server
-      become: true
+      vars:
+        projectName: user-service
+        dockerUser: bukanebi
+        gitRepo: https://github.com/biFebriansyah/serv-user.git
     
       tasks:
-      - name: clone from github
-        command: git clone https://github.com/biFebriansyah/serv-user.git
+      - name: remove project if exist
+        command: sudo rm -rf {{projectName}}
         args:
             chdir: /opt/project
-            
-      - name: create docker image using war file
-        command: docker build -t simple-project-image:latest .
+        ignore_errors: yes
+
+      - name: clone from github
+        command: git clone {{gitRepo}} {{projectName}}
         args:
-          chdir: /opt/project/serv-user
+            chdir: /opt/project
+
+      - name: create docker image
+        command: docker build -t {{projectName}}-image:latest .
+        args:
+          chdir: /opt/project/{{projectName}}
     
-      - name: create tag to image
-        command: docker tag simple-project-image bukanebi/simple-project-image
+      - name: taging image
+        command: docker tag {{projectName}}-image {{dockerUser}}/{{projectName}}-image
     
       - name: push image on to dockerhub
-        command: docker push bukanebi/simple-project-image
+        command: docker push {{dockerUser}}/{{projectName}}-image
     
       - name: remove docker images form ansible server
-        command: docker rmi simple-devops-image:latest bukanebi/simple-devops-image
+        command: docker rmi {{projectName}}-image:latest {{dockerUser}}/{{projectName}}-image
         ignore_errors: yes
