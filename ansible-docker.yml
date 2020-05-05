@@ -3,5 +3,20 @@
       become: true
     
       tasks:
-      - name: clone project from github
-        command: git clone https://github.com/biFebriansyah/serv-user.git .
+      - name: clone from github
+        command: git clone https://github.com/biFebriansyah/serv-user.git
+
+      - name: create docker image using war file
+        command: docker build -t simple-project-image:latest .
+        args:
+          chdir: /opt/project/serv-user
+    
+      - name: create tag to image
+        command: docker tag simple-project-image bukanebi/simple-project-image
+    
+      - name: push image on to dockerhub
+        command: docker push bukanebi/simple-project-image
+    
+      - name: remove docker images form ansible server
+        command: docker rmi simple-devops-image:latest bukanebi/simple-devops-image
+        ignore_errors: yes
