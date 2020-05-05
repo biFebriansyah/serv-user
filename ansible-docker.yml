@@ -5,7 +5,9 @@
       tasks:
       - name: clone from github
         command: git clone https://github.com/biFebriansyah/serv-user.git
-
+        args:
+            chdir: /opt/project
+            
       - name: create docker image using war file
         command: docker build -t simple-project-image:latest .
         args:
