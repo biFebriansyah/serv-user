@@ -2,4 +2,6 @@
 node_modules
 .env
 docker-compose.yml
-docker-compose copy.yml
+docker-compose-1.yml
+docker-compose-2.yml
+default.conf

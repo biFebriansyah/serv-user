@@ -3,7 +3,7 @@ services:
     postgres:
         image: postgres:latest
         ports:
-            - "5431:5432"
+            - "5439:5432"
         networks:
             - rentappnet
         volumes:
