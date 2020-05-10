@@ -22,6 +22,7 @@ run program using terminal.
 
 ```bash
 npm start
+npm audith fix
 
 ```
 
