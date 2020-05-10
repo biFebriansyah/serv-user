@@ -1,0 +1,15 @@
+---
+- name: Create pods using deployment
+  hosts: kubernetes
+  user: admin
+
+  tasks:
+    - name: copy k8s yml file to master node
+      copy:
+        src: /opt/project/deploy-k8s-normal.yaml
+        dest: /home/admin/deploy-k8s-normal.yaml
+        owner: admin
+      ignore_errors: yes
+
+    - name: create a deployment
+      command: kubectl apply -f deploy-k8s-normal.yaml
