@@ -3,7 +3,7 @@
   hosts: kubernetes
   user: admin
   vars:
-    deployFile: user-service-k8s.yaml
+    deployFile: user-service-deploy.yaml
 
   tasks:
     - name: copy k8s yml file to master node
