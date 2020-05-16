@@ -36,23 +36,30 @@ paths:
                     application/json:
                         schema:
                             properties:
-                                name:
+                                fullName:
                                     type: string
-                                    example: ebiebi
-                                jurusan:
+                                    example: user1
+                                email:
                                     type: string
-                                    example: teknik
-                                kelas:
+                                    example: user1@email.com
+                                Address:
                                     type: string
-                                    example: dua
-                                handphone:
-                                    type: integer
-                                    example: 0812121212
+                                    example: tebet utara
+                                Username:
+                                    type: string
+                                    example: theone
+                                Password:
+                                    type: string
+                                    example: Password
+                                RePassword:
+                                    type: string
+                                    example: Password
                             required:
-                                - name
-                                - jurusan
-                                - kelas
-                                - handphone
+                                - fullName
+                                - email
+                                - Username
+                                - Password
+                                - RePassword
             responses:
                 "200":
                     description: OK
