@@ -4,7 +4,7 @@ info:
     version: 1.0.0
     title: Boilerplate Express
 paths:
-    /students:
+    /users:
         get:
             tags:
                 - Get Users
