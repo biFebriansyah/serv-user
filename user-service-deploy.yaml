@@ -5,7 +5,7 @@ metadata:
 ---
 apiVersion: v1
 data:
-  PGHOST: "52.77.251.231"
+  PGHOST: "34.221.5.136"
   PGUSER: "bukanebi"
   PGDATABASE: "Rentapp"
   PGPASSWORD: "bukalapak"
@@ -49,7 +49,12 @@ spec:
     matchLabels:
       app: user-services
       tier: backend
-  replicas: 1
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
   template:
     metadata:
       labels:
@@ -59,6 +64,7 @@ spec:
       containers:
         - name: user-service
           image: bukanebi/user-service-image
+          imagePullPolicy: Always
           ports:
             - containerPort: 9000
           envFrom:

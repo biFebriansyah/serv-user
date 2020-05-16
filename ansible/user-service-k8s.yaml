@@ -4,11 +4,18 @@
   user: admin
   vars:
     deployFile: user-service-deploy.yaml
+    projectName: user-service
 
   tasks:
+    - name: remove file if exist
+      command: rm {{deployFile}}
+      args:
+        chdir: /home/admin
+      ignore_errors: yes
+
     - name: copy k8s yml file to master node
       copy:
-        src: /opt/project/{{deployFile}}
+        src: /opt/project/{{projectName}}/{{deployFile}}
         dest: /home/admin/{{deployFile}}
         owner: admin
       ignore_errors: yes
