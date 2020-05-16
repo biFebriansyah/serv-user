@@ -60,6 +60,8 @@ spec:
       labels:
         app: user-services
         tier: backend
+      annotations:
+        date: "`date +'%s'`"
     spec:
       containers:
         - name: user-service

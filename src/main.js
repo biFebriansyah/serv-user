@@ -5,7 +5,7 @@ const MainRouters = express.Router();
 
 MainRouters.use("/users", Users);
 MainRouters.get("*", function (req, res) {
-    res.status(404).send("what???");
+    res.status(404).send("update new here???");
 });
 
 module.exports = MainRouters;
