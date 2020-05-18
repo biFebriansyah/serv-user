@@ -47,3 +47,5 @@ server.use(router);
 server.listen(servicePort, () => {
     console.log(`Service running in port ${servicePort}`);
 });
+
+module.exports = server;

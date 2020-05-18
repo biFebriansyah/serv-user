@@ -1,0 +1,26 @@
+{
+    "status": 200,
+    "description": "OK",
+    "result": [
+        {
+            "id": 2,
+            "email": "user2@email.com",
+            "fullName": "user2",
+            "Address": "tebet utara",
+            "Username": "thetwo",
+            "Password": "Password",
+            "createdAt": "2020-05-16T12:38:20.217Z",
+            "updatedAt": "2020-05-16T12:38:20.217Z"
+        },
+        {
+            "id": 1,
+            "email": "user1@email.com",
+            "fullName": "user1",
+            "Address": "tebet utara",
+            "Username": "theone",
+            "Password": "Password",
+            "createdAt": "2020-05-16T12:37:41.749Z",
+            "updatedAt": "2020-05-16T12:37:41.749Z"
+        }
+    ]
+}
