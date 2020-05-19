@@ -1,9 +1,9 @@
 module.exports = {
     userData: {
-        fullName: "user3",
-        email: "user3@email.com",
+        fullName: "user6",
+        email: "user6@email.com",
         Address: "tebet utara",
-        Username: "theThree",
+        Username: "theSix",
         Password: "Password",
         RePassword: "Password",
     },
