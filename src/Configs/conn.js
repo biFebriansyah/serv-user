@@ -4,20 +4,20 @@ const { Sequelize } = require("sequelize");
 class dbConnect {
     constructor() {
         this.con = new Pool({
-            user: process.env.PGUSER,
-            host: process.env.PGHOST,
-            database: process.env.PGDATABASE,
-            password: process.env.PGPASSWORD,
-            port: process.env.PGPORT,
+            user: global.process.env.PGUSER,
+            host: global.process.env.PGHOST,
+            database: global.process.env.PGDATABASE,
+            password: global.process.env.PGPASSWORD,
+            port: global.process.env.PGPORT,
         });
 
         this.sequelize = new Sequelize(
-            process.env.PGDATABASE,
-            process.env.PGUSER,
-            process.env.PGPASSWORD,
+            global.process.env.PGDATABASE,
+            global.process.env.PGUSER,
+            global.process.env.PGPASSWORD,
             {
-                host: process.env.PGHOST,
-                port: process.env.PGPORT,
+                host: global.process.env.PGHOST,
+                port: global.process.env.PGPORT,
                 dialect: "postgres",
             }
         );

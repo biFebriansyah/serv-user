@@ -31,6 +31,7 @@
         "mocha": "^7.1.2",
         "pg-hstore": "^2.3.3",
         "prettier": "^2.0.3",
+        "secure-env": "^1.2.0",
         "sinon": "^9.0.2",
         "supertest": "^4.0.2",
         "swagger-ui-express": "^4.1.4"
