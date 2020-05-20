@@ -18,15 +18,13 @@ describe("Testing UserService", () => {
 describe("test endpoint /users", () => {
     describe("Get data", () => {
         it("Should return all data users", (done) => {
-            request
-                .get("/users")
-                .end((err, res) => {
-                    expect(res.statusCode).to.equal(200);
-                    expect(res.body).to.be.an("Object");
-                    expect(res.body.result).to.be.an("Array");
-                    done();
-                })
-        }).timeout(10000);
+            request.get("/users").end((err, res) => {
+                expect(res.statusCode).to.equal(200);
+                expect(res.body).to.be.an("Object");
+                expect(res.body.result).to.be.an("Array");
+                done();
+            });
+        }).timeout(100000);
     });
 
     describe("Post data", () => {
@@ -40,7 +38,7 @@ describe("test endpoint /users", () => {
                     expect(res.body).to.be.an("Object");
                     expect(res.body.result).to.be.an("Object");
                     done();
-                })
-        }).timeout(10000);
+                });
+        }).timeout(100000);
     });
 });
