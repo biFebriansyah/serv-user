@@ -6,7 +6,7 @@
     "scripts": {
         "start": "nodemon app.js",
         "debug": "nodemon --inspect app.js",
-        "test": "mocha test/*.js"
+        "test": "mocha test/*.js --exit"
     },
     "keywords": [
         "express",
