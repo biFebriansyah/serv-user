@@ -30,7 +30,7 @@ class Users {
 
     commit() {
         return new Promise((reslove, reject) => {
-            if (process.env.MODE == "Dev") {
+            if (global.process.env.MODE == "Dev") {
                 this.Users.sync()
                     .then(() => {
                         reslove("Commit succsess");
@@ -39,7 +39,7 @@ class Users {
                         reject("Something hapen while commiting \n", err);
                     });
             }
-            if (process.env.MODE == "Prod") {
+            if (global.process.env.MODE == "Prod") {
                 reject("Youre on mode Production");
             }
         });
