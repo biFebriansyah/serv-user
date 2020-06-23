@@ -19,7 +19,6 @@ server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
 server.use(morgan("dev"));
 
-
 // Wait connection from DB,
 // run on Docker case
 let retries = 10;

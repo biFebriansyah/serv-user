@@ -1,17 +1,15 @@
 module.exports = {
-    root: true,
     env: {
-        node: true,
+        browser: true,
+        commonjs: true,
+        es2020: true,
     },
-    extends: ["standard", "prettier", "plugin:flowtype/recommended"],
+    extends: ["standard", "prettier"],
     plugins: ["prettier"],
+    parserOptions: {
+        ecmaVersion: 11,
+    },
     rules: {
         "prettier/prettier": "error",
-        "no-unused-vars": "warn",
-        "no-console": "off",
-        "func-names": "off",
-        "no-process-exit": "off",
-        "object-shorthand": "off",
-        "class-methods-use-this": "off",
     },
-};
+}
